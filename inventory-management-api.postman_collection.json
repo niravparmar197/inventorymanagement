@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "cfdde6bd-04e4-43a9-ac9c-29a8fc260490",
+		"name": "inventory-management-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26904910",
+		"_collection_link": "https://warped-desert-930847.postman.co/workspace/inventory-management-api~984f7d17-8271-4d10-b31e-95f0458dbbc2/collection/26904910-cfdde6bd-04e4-43a9-ac9c-29a8fc260490?action=share&source=collection_link&creator=26904910"
+	},
+	"item": [
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "place order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MDZkODk1ZDY3MzI0Mjc5MmQyNTU3YSIsInVzZXJuYW1lIjoibmlyYXYxIiwiaWF0IjoxNjk0OTUwNjc4LCJleHAiOjE2OTQ5NTQyNzh9.wVD4QxbgZ3MKyPCT3jPWukm65rr1lSgXC0XICK650C8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": \"6506d895d673242792d2557a\",\r\n    \"total_price\": 200,\r\n    \"items\": [\r\n        {\r\n            \"product_id\": \"6506db48d673242792d2557e\",\r\n            \"quantity\": 2,\r\n            \"price\": 100\r\n        }\r\n    ],\r\n    \"status\": \"pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:3000/api/orders"
+					},
+					"response": []
+				},
+				{
+					"name": "get all order by user ",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MDZkODk1ZDY3MzI0Mjc5MmQyNTU3YSIsInVzZXJuYW1lIjoibmlyYXYxIiwiaWF0IjoxNjk0OTUwNjc4LCJleHAiOjE2OTQ5NTQyNzh9.wVD4QxbgZ3MKyPCT3jPWukm65rr1lSgXC0XICK650C8",
+								"type": "text"
+							}
+						],
+						"url": "localhost:3000/api/orders"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "get products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:3000/api/products"
+					},
+					"response": []
+				},
+				{
+					"name": "create products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"bike\",\r\n  \"description\": \"hunter\",\r\n  \"price\": 1000,\r\n  \"available_quantity\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:3000/api/products"
+					},
+					"response": []
+				},
+				{
+					"name": "get product by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"bike\",\r\n  \"description\": \"hunter 350\",\r\n  \"price\": 1000,\r\n  \"available_quantity\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:3000/api/products/6506db69d673242792d25580"
+					},
+					"response": []
+				},
+				{
+					"name": "update by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"bike\",\r\n  \"description\": \"hunter 350\",\r\n  \"price\": 1000,\r\n  \"available_quantity\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:3000/api/products/6506db69d673242792d25580"
+					},
+					"response": []
+				},
+				{
+					"name": "delete by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:3000/api/products/6506db69d673242792d25580"
+					},
+					"response": []
+				},
+				{
+					"name": "search by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/products/search?name=mobile",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "mobile"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "analytics",
+			"item": [
+				{
+					"name": "top-users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:3000/api/analytics/top-users"
+					},
+					"response": []
+				},
+				{
+					"name": "top-products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:3000/api/analytics/top-products"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"nirav1\",\r\n\"password\":\"Nirav@196\",\r\n\"email\":\"nirav1@yopmail.com\",\r\n\"name\":\"nirav parmar\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:3000/api/auth/register"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"nirav1\",\r\n\"password\":\"Nirav@196\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:3000/api/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MDZkODk1ZDY3MzI0Mjc5MmQyNTU3YSIsInVzZXJuYW1lIjoibmlyYXYxIiwiaWF0IjoxNjk0OTQ3NTM3LCJleHAiOjE2OTQ5NTExMzd9.E2Y_g0gbjASjScV8Vh2maGqQJ6gzAXvR9xGbqz3MNbg",
+								"type": "text"
+							}
+						],
+						"url": "localhost:3000/api/auth/profile"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
